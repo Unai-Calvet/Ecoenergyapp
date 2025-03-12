@@ -12,6 +12,8 @@ namespace EcoenergyApp.Pages
 
 		public string? Message { get; set; }
         public void OnGet() {
+            Simulacions = null;
+            Message = null;
             try {
                 using (var reader = new StreamReader(@"\files\simulacions_energia.csv"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture)) {
