@@ -1,0 +1,44 @@
+﻿@page
+@model EcoenergyApp.Pages.VistaSimulacionsModel
+@{
+	ViewData["Title"] = "Llistat simulacions";
+}
+
+<h2>Llistat de Simulacions</h2>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Data de la Simulació</th>
+			<th>Tipus de sistema energètic</th>
+			<th>Hores de sol / Velocitat del vent / Cabals d'aigua</th>
+			<th>Rati</th>
+			<th>Energia total (kW)</th>
+			<th>Cost/kW</th>
+			<th>Preu/kW</th>
+			<th>Cost total</th>
+			<th>Preu total</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.Simulacions != null) {
+			@foreach (var simulacio in Model.Simulacions) {
+				<tr>
+					<td>@simulacio.CreacioSimulacio</td>
+					<td>@simulacio.Tipus</td>
+					<td>@simulacio.HoresVelocitatCabal</td>
+						<td>@simulacio.Rati</td>
+						<td>@simulacio.Energia (kW)</td>
+						<td>@simulacio.CostKw</td>
+						<td>@simulacio.PreuKw</td>
+						<td>@simulacio.Cost</td>
+						<td>@simulacio.Preu</td>
+				</tr>
+			}	
+		}
+	</tbody>
+</table>
+
+<p>@Model.Message</p>
+
+<a asp-page="AddSimulacio">Afegir nova simulació</a>
